@@ -21,13 +21,14 @@
     "ios:mobile:device:prod:release": "pnpm -C apps/mobile ios:device:prod:release",
     "build": "turbo build --filter=!@multica/mobile",
     "typecheck": "turbo typecheck --filter=!@multica/mobile",
-    "test": "turbo test --filter=!@multica/mobile",
+    "test": "pnpm test:scripts && turbo test --filter=!@multica/mobile",
     "lint": "turbo lint --filter=!@multica/mobile",
     "knip": "knip",
     "check:ui-exports": "node scripts/check-ui-wildcard-exports.mjs",
     "clean": "turbo clean && rm -rf node_modules",
     "ui:add": "cd packages/ui && npx shadcn@latest add",
-    "generate:reserved-slugs": "node scripts/generate-reserved-slugs.mjs"
+    "generate:reserved-slugs": "node scripts/generate-reserved-slugs.mjs",
+    "test:scripts": "node --test scripts/*.test.mjs"
   },
   "engines": {
     "node": ">=22"
